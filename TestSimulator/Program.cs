@@ -13,8 +13,7 @@ namespace TestSimulator
         {
             bool userExitRequested = false;
 
-            Craft.TheCraft.SetInitialValues(151, 70, 1436, 9999, "");
-            //want cs2 to be 168
+            Craft.TheCraft.SetInitialValues(151, 70, 1436, 9999, "");            
 
             while (!userExitRequested)
             {
@@ -24,7 +23,7 @@ namespace TestSimulator
                 Console.WriteLine("Master's Mend (mm) | Master's Mend II (m2) | Rumination (ru) | Manipulation (mn)");
                 Console.WriteLine("Brand Of : Earth (be) | Fire (bf) | Ice (bi) | Lightning (bl) | Water (ba) | Wind (bw)");
                 Console.WriteLine("Name Of : Earth (ne) | Fire (nf) | Ice (ni) | Lightning (nl) | Water (na) | Wind (nw)");
-                Console.WriteLine();
+                Console.WriteLine(); 
                 
                 Console.WriteLine("Condition is {0}.", Controller.TheController.Condition);                
                 Console.WriteLine(Controller.TheController.ExecuteCommand(Console.ReadLine()));
