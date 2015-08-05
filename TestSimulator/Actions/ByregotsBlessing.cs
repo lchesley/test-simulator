@@ -84,7 +84,7 @@ namespace TestSimulator
                     //Success!
                     wasSuccessful = true;
                     qualityModifier = qualityModifier * (1 + (innerQuiet.StepsActive * .2));
-                    double quality = Calc.ApplyCondition(Calc.Quality(craft.ItemLevel, crafter.CrafterLevel, crafter.Control) * qualityModifier, condition);
+                    double quality = Calc.ApplyCondition(Calc.Quality(craft.RecipeLevel, craft.ItemLevel, crafter.CrafterLevel, crafter.Control) * qualityModifier, condition);
                     result = ActionName + " successful!  Quality increased by " + Math.Round(quality, 0, MidpointRounding.ToEven);
 
                     //Update quality.                

@@ -75,7 +75,7 @@ namespace TestSimulator
             //Success!
             wasSuccessful = true;
 
-            double progress = Calc.Progress(craft.ItemLevel, crafter.CrafterLevel, crafter.Craftsmanship) * ProgressModifier;
+            double progress = Calc.Progress(craft.RecipeLevel, craft.ItemLevel, crafter.CrafterLevel, crafter.Craftsmanship) * ProgressModifier;
             result = ActionName + " successful!  Progress increased by " + Math.Round(progress, 0, MidpointRounding.ToEven);
 
             craft.UpdateProgress(progress);            

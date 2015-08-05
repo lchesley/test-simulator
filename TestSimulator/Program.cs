@@ -13,7 +13,7 @@ namespace TestSimulator
         {
             bool userExitRequested = false;
 
-            Craft.TheCraft.SetInitialValues(151, 70, 1436, 9999, "");            
+            Craft.TheCraft.SetInitialValues(50, 50, 40, 1436, 9999, "");            
 
             while (!userExitRequested)
             {

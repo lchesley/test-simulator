@@ -50,10 +50,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="MockCraft.cs" />
     <Compile Include="Sub50Progress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sub50ProgressIngenuityII.cs" />
     <Compile Include="Sub50ProgressIngenuityI.cs" />
+    <Compile Include="Sub50ProgressM.cs" />
+    <Compile Include="Sub50ProgressIngenuityIM.cs" />
+    <Compile Include="Sub50ProgressIngenuityIIM.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestSimulator\TestSimulator.csproj">

@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestSimulator;
 
-namespace TestSimulator
+namespace SimulatorTests
 {
-    public class Craft : ICraft
+    public class MockCraft : ICraft
     {
-        private static Craft theCraft;
+        private static MockCraft theMockCraft;
 
-        private Craft()
+        private MockCraft()
         {
             itemLevel = 0;
             baseItemLevel = 0;
@@ -25,14 +26,14 @@ namespace TestSimulator
             affinity = ElementalAffinity.None;
         }
 
-        public static Craft TheCraft
+        public static MockCraft TheMockCraft
         {
             get
             {
-                if (theCraft == null)
-                    theCraft = new Craft();
+                if (theMockCraft == null)
+                    theMockCraft = new MockCraft();
 
-                return theCraft;
+                return theMockCraft;
             }
         }
 
@@ -51,7 +52,7 @@ namespace TestSimulator
 
         public int ItemLevel
         {
-            get { return itemLevel; }        
+            get { return itemLevel; }
         }
 
         public int RecipeLevel
@@ -66,14 +67,14 @@ namespace TestSimulator
 
         public int Durability
         {
-            get { return durability; }         
-        }        
+            get { return durability; }
+        }
 
         public int RemainingDurability
         {
-            get { return remainingDurability; }         
+            get { return remainingDurability; }
         }
-        
+
         public double Progress
         {
             get { return progress; }
@@ -81,14 +82,14 @@ namespace TestSimulator
 
         public int Difficulty
         {
-            get { return difficulty; }        
+            get { return difficulty; }
         }
 
         public double Quality
         {
-            get { return quality; }        
+            get { return quality; }
         }
-        
+
         public int ItemQuality
         {
             get { return itemQuality; }
@@ -96,17 +97,17 @@ namespace TestSimulator
 
         public string ItemName
         {
-            get { return itemName; }            
+            get { return itemName; }
         }
 
         public int Step
         {
-            get { return step; }        
+            get { return step; }
         }
 
         public ElementalAffinity Affinity
         {
-            get { return affinity; }            
+            get { return affinity; }
         }
 
         public void SetInitialValues(int recipeLevel, int itemLevel, int durability, int difficulty, int itemQuality, string itemName)
@@ -163,7 +164,7 @@ namespace TestSimulator
         {
             string temp = String.Empty;
 
-            temp += ItemName + " (iLvl - " +  itemLevel + "):";            
+            temp += ItemName + " (iLvl - " + itemLevel + "):";
             temp += " step " + step;
             temp += " dur " + remainingDurability + "/" + durability;
             temp += " pro " + Math.Round(progress, 0, MidpointRounding.ToEven) + "/" + difficulty;
@@ -171,6 +172,6 @@ namespace TestSimulator
 
             return temp;
         }
-
     }
+
 }

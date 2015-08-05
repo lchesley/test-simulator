@@ -9,6 +9,7 @@ namespace TestSimulator
         int Durability { get; }
         void IncrementStep();
         int ItemLevel { get; }
+        int RecipeLevel { get; }
         int BaseItemLevel { get; }
         string ItemName { get; }
         int ItemQuality { get; }
@@ -23,7 +24,7 @@ namespace TestSimulator
         void UpdateProgress(double progressMade);
         void UpdateQuality(double qualityIncrease);
         void SetItemLevel(int itemLevel);
-        void SetInitialValues(int itemLevel, int durability, int difficulty, int itemQuality, string itemName);
-        void SetInitialValues(int itemLevel, int durability, int difficulty, int itemQuality, string itemName, ElementalAffinity affinity);
+        void SetInitialValues(int recipeLevel, int itemLevel, int durability, int difficulty, int itemQuality, string itemName);
+        void SetInitialValues(int recipeLevel, int itemLevel, int durability, int difficulty, int itemQuality, string itemName, ElementalAffinity affinity);
     }
 }

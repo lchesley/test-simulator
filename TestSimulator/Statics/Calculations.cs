@@ -8,13 +8,14 @@ namespace TestSimulator
 {
     public static class Calc
     {                
-        public static double Progress(int itemLevel, int crafterLevel, double craftsmanship)
+        public static double Progress(int recipeLevel, int itemLevel, int crafterLevel, double craftsmanship)
         {
             double baseProgress;
             double levelCorrection = 0;
             int levelDifference = LevelFactor(itemLevel, GetVirtualCrafterLevel(crafterLevel));
 
-            if (crafterLevel > 50)
+            //if (crafterLevel > 50)
+            if (itemLevel > 110)
             {
                 baseProgress = (0.216733026952621 * craftsmanship) - 2.12243052267693;
 
@@ -102,7 +103,7 @@ namespace TestSimulator
             return (0.36 * control) + 34;
         }
         
-        public static double Quality(int itemLevel, int crafterLevel, double control)
+        public static double Quality(int recipeLevel, int itemLevel, int crafterLevel, double control)
         {
             //Quality = round((1 - 0.05 * recipe level difference) * (0.36 * Control + 34)), capped at five?
             //"Base Quality Gain" = 0.36 * (Control) + 34
