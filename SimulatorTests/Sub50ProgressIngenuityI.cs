@@ -7,16 +7,128 @@ namespace SimulatorTests
     [TestClass]
     public class Sub50ProgressIngenuityI
     {
-        int crafterLevel;
-        int ingenuityFactor;
-        double craftsmanship;
-
-        [TestInitialize]        
-        public void Initialize()
+        public class MockCrafter : ICrafter
         {
-            crafterLevel = 50;
-            ingenuityFactor = 5;
-            craftsmanship = 395;            
+            private static MockCrafter theMockCrafter;
+
+            private MockCrafter()
+            {
+                //Craftsmanship
+                craftsmanship = 395;
+                baseCraftsmanship = 395;
+                //Control
+                control = 356;
+                baseControl = 356;
+                //CP
+                cp = 349;
+                baseCP = 349;
+                //Crafter Level
+                crafterLevel = 50;
+            }
+
+            public static MockCrafter TheMockCrafter
+            {
+                get
+                {
+                    if (theMockCrafter == null)
+                        theMockCrafter = new MockCrafter();
+
+                    return theMockCrafter;
+                }
+            }
+
+            private double craftsmanship;
+            private int baseCraftsmanship;
+            private double control;
+            private int baseControl;
+            private int cp;
+            private int baseCP;
+            private int crafterLevel;
+
+            public int CrafterLevel
+            {
+                get { return crafterLevel; }
+            }
+
+            public double Craftsmanship
+            {
+                get { return craftsmanship; }
+            }
+
+            public double Control
+            {
+                get { return control; }
+            }
+
+            public int CP
+            {
+                get { return cp; }
+            }
+
+            public int BaseControl
+            {
+                get { return baseControl; }
+            }
+
+            public int BaseCP
+            {
+                get { return baseCP; }
+            }
+
+            public int BaseCraftsmanship
+            {
+                get { return baseCraftsmanship; }
+            }
+
+            public void IncreaseControl(double controlIncrease)
+            {
+                control += controlIncrease;
+            }
+
+            public void IncreaseCraftsmanship(double craftsmanshipIncrease)
+            {
+                craftsmanship += craftsmanshipIncrease;
+            }
+
+            public void IncreaseCP(int cpIncrease)
+            {
+                cp += cpIncrease;
+            }
+
+            public void UpdateCP(int cpUsed)
+            {
+                cp -= cpUsed;
+            }
+
+            public string ShowStatus()
+            {
+                string temp = String.Empty;
+
+                temp = "Crafter Level : " + crafterLevel;
+                if (craftsmanship != baseCraftsmanship)
+                {
+                    temp += " craft : " + craftsmanship + "(base : " + baseCraftsmanship + ")";
+                }
+                else
+                {
+                    temp += " craft : " + craftsmanship;
+                }
+                if (Math.Round(control, 0, MidpointRounding.ToEven) != baseControl)
+                {
+                    temp += " con : " + Math.Round(control, 2, MidpointRounding.ToEven) + "(base : " + baseControl + ")";
+                }
+                else
+                {
+                    temp += " con : " + Math.Round(control, 2, MidpointRounding.ToEven);
+                }
+                temp += " CP : " + cp + "/" + baseCP;
+
+                return temp;
+            }
+
+            public void EatFood()
+            {
+            }
         }
                 
         [TestMethod]
@@ -24,12 +136,13 @@ namespace SimulatorTests
         {
             //Arrange                        
             double expected = 130;
-            int recipeLevel = crafterLevel;
-            int itemLevel = recipeLevel;
+            MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel), (MockCrafter.TheMockCrafter.CrafterLevel), 40, 1436, 9999, "");                        
             double progressMultiplier = 1.2;
 
             //Act
-            var result = Calc.Progress(recipeLevel, itemLevel - ingenuityFactor, crafterLevel, craftsmanship) * progressMultiplier;
+            Ingenuity ing = new Ingenuity();
+            string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
+            var result = Calc.Progress(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship) * progressMultiplier;
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -40,12 +153,13 @@ namespace SimulatorTests
         {
             //Arrange                        
             double expected = 132;
-            int recipeLevel = crafterLevel - 1;
-            int itemLevel = recipeLevel;
+            MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 1), (MockCrafter.TheMockCrafter.CrafterLevel - 1), 40, 1436, 9999, "");                        
             double progressMultiplier = 1.2;
 
             //Act
-            var result = Calc.Progress(recipeLevel, itemLevel - ingenuityFactor, crafterLevel, craftsmanship) * progressMultiplier;
+            Ingenuity ing = new Ingenuity();
+            string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
+            var result = Calc.Progress(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship) * progressMultiplier;
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -56,12 +170,13 @@ namespace SimulatorTests
         {
             //Arrange                        
             double expected = 134;
-            int recipeLevel = crafterLevel - 2;
-            int itemLevel = recipeLevel;
+            MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 2), (MockCrafter.TheMockCrafter.CrafterLevel - 2), 40, 1436, 9999, "");                        
             double progressMultiplier = 1.2;
 
             //Act
-            var result = Calc.Progress(recipeLevel, itemLevel - ingenuityFactor, crafterLevel, craftsmanship) * progressMultiplier;
+            Ingenuity ing = new Ingenuity();
+            string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
+            var result = Calc.Progress(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship) * progressMultiplier;
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -72,12 +187,13 @@ namespace SimulatorTests
         {
             //Arrange                        
             double expected = 136;
-            int recipeLevel = crafterLevel - 3;
-            int itemLevel = recipeLevel;
+            MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 3), (MockCrafter.TheMockCrafter.CrafterLevel - 3), 40, 1436, 9999, "");                        
             double progressMultiplier = 1.2;
 
             //Act
-            var result = Calc.Progress(recipeLevel, itemLevel - ingenuityFactor, crafterLevel, craftsmanship) * progressMultiplier;
+            Ingenuity ing = new Ingenuity();
+            string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
+            var result = Calc.Progress(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship) * progressMultiplier;
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -88,12 +204,13 @@ namespace SimulatorTests
         {
             //Arrange                        
             double expected = 138;
-            int recipeLevel = crafterLevel - 4;
-            int itemLevel = recipeLevel;
+            MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 4), (MockCrafter.TheMockCrafter.CrafterLevel - 4), 40, 1436, 9999, "");                        
             double progressMultiplier = 1.2;
 
             //Act
-            var result = Calc.Progress(recipeLevel, itemLevel - ingenuityFactor, crafterLevel, craftsmanship) * progressMultiplier;
+            Ingenuity ing = new Ingenuity();
+            string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
+            var result = Calc.Progress(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship) * progressMultiplier;
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -104,12 +221,13 @@ namespace SimulatorTests
         {
             //Arrange                        
             double expected = 140;
-            int recipeLevel = crafterLevel - 5;
-            int itemLevel = recipeLevel;
+            MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 5), (MockCrafter.TheMockCrafter.CrafterLevel - 5), 40, 1436, 9999, "");                        
             double progressMultiplier = 1.2;
 
             //Act
-            var result = Calc.Progress(recipeLevel, itemLevel - ingenuityFactor, crafterLevel, craftsmanship) * progressMultiplier;
+            Ingenuity ing = new Ingenuity();
+            string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
+            var result = Calc.Progress(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship) * progressMultiplier;
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -120,12 +238,13 @@ namespace SimulatorTests
         {
             //Arrange                        
             double expected = 143;
-            int recipeLevel = crafterLevel - 6;
-            int itemLevel = recipeLevel;
+            MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 6), (MockCrafter.TheMockCrafter.CrafterLevel - 6), 40, 1436, 9999, "");                        
             double progressMultiplier = 1.2;
 
             //Act
-            var result = Calc.Progress(recipeLevel, itemLevel - ingenuityFactor, crafterLevel, craftsmanship) * progressMultiplier;
+            Ingenuity ing = new Ingenuity();
+            string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
+            var result = Calc.Progress(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship) * progressMultiplier;
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -136,12 +255,13 @@ namespace SimulatorTests
         {
             //Arrange                        
             double expected = 145;
-            int recipeLevel = crafterLevel - 7;
-            int itemLevel = recipeLevel;
+            MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 7), (MockCrafter.TheMockCrafter.CrafterLevel - 7), 40, 1436, 9999, "");                        
             double progressMultiplier = 1.2;
 
             //Act
-            var result = Calc.Progress(recipeLevel, itemLevel - ingenuityFactor, crafterLevel, craftsmanship) * progressMultiplier;
+            Ingenuity ing = new Ingenuity();
+            string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
+            var result = Calc.Progress(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship) * progressMultiplier;
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -152,12 +272,13 @@ namespace SimulatorTests
         {
             //Arrange                        
             double expected = 147;
-            int recipeLevel = crafterLevel - 8;
-            int itemLevel = recipeLevel;
+            MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 8), (MockCrafter.TheMockCrafter.CrafterLevel - 8), 40, 1436, 9999, "");                        
             double progressMultiplier = 1.2;
 
             //Act
-            var result = Calc.Progress(recipeLevel, itemLevel - ingenuityFactor, crafterLevel, craftsmanship) * progressMultiplier;
+            Ingenuity ing = new Ingenuity();
+            string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
+            var result = Calc.Progress(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship) * progressMultiplier;
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -168,12 +289,13 @@ namespace SimulatorTests
         {
             //Arrange                        
             double expected = 149;
-            int recipeLevel = crafterLevel - 9;
-            int itemLevel = recipeLevel;
+            MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 9), (MockCrafter.TheMockCrafter.CrafterLevel - 9), 40, 1436, 9999, "");                        
             double progressMultiplier = 1.2;
 
             //Act
-            var result = Calc.Progress(recipeLevel, itemLevel - ingenuityFactor, crafterLevel, craftsmanship) * progressMultiplier;
+            Ingenuity ing = new Ingenuity();
+            string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
+            var result = Calc.Progress(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship) * progressMultiplier;
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -184,12 +306,13 @@ namespace SimulatorTests
         {
             //Arrange                        
             double expected = 151;
-            int recipeLevel = crafterLevel - 10;
-            int itemLevel = recipeLevel;
+            MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 10), (MockCrafter.TheMockCrafter.CrafterLevel - 10), 40, 1436, 9999, "");                        
             double progressMultiplier = 1.2;
 
             //Act
-            var result = Calc.Progress(recipeLevel, itemLevel - ingenuityFactor, crafterLevel, craftsmanship) * progressMultiplier;
+            Ingenuity ing = new Ingenuity();
+            string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
+            var result = Calc.Progress(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship) * progressMultiplier;
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);

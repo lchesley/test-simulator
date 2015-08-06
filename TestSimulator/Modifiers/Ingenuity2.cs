@@ -76,16 +76,23 @@ namespace TestSimulator
         {
             crafter.UpdateCP(CPCost);
 
-            //if (craft.ItemLevel > (crafter.CrafterLevel - 3))
-            //{
-            //    craft.SetItemLevel(crafter.CrafterLevel - 3);
-            //}
-            //else
-            //{
-            //    craft.SetItemLevel(craft.ItemLevel);
-            //}
+            if (crafter.CrafterLevel <= 50)
+            {
+                if (craft.RecipeLevel < 50 || (craft.RecipeLevel == 50 && craft.ItemLevel == 50))
+                {
+                    craft.SetItemLevel(craft.ItemLevel - 8);
+                }
 
-            craft.SetItemLevel(craft.ItemLevel - 8);
+                if (craft.ItemLevel == 55 || craft.ItemLevel == 70)
+                {
+                    craft.SetItemLevel(crafter.CrafterLevel - 3);
+                }
+
+                if (craft.ItemLevel > 110)
+                {
+                    craft.SetItemLevel(crafter.CrafterLevel + 4);
+                }                
+            }            
             
             return ModifierName + " is applied.  Item Level is now " + craft.ItemLevel;
         }

@@ -96,55 +96,55 @@ namespace TestSimulator
 
             return (baseProgress * (1 + levelCorrection));
         }
-
-        public static double Quality(double control)
-        {
-            //return (0.3597402597 * control) + 33.9805194805;
-            return (0.36 * control) + 34;
-        }
         
         public static double Quality(int recipeLevel, int itemLevel, int crafterLevel, double control)
-        {
-            //Quality = round((1 - 0.05 * recipe level difference) * (0.36 * Control + 34)), capped at five?
-            //"Base Quality Gain" = 0.36 * (Control) + 34
-            //return Quality(control) * (1 + (-0.05 * Math.Min(Math.Max(LevelFactor(itemLevel, crafterLevel), 0), 5)));            
-            //double baseQuality = (0.36 * control) + 34;
+        {            
             double baseQuality;
+            int levelDifference = LevelFactor(itemLevel, GetVirtualCrafterLevel(crafterLevel));
+            double levelCorrection = 0;
+            double recipeLevelFactor = 0;
 
-            if (itemLevel >= 55)
+            if(itemLevel >= 115)
             {
-                baseQuality = 23.409673659673096 + 0.26099393438100732 * control + 0.000022405902343322353 * control * control;
+                baseQuality = (0.000033942184008444 * Math.Pow(control, 2)) + (0.338497036226036 * control) + 33.3016915279868;
+
+                recipeLevelFactor = 0.000342807 * (115 - itemLevel);
+
+                levelDifference = Math.Max(levelDifference, -6);
+
+                if (levelDifference < 0)
+                {
+                    levelCorrection = 0.0407512 * levelDifference;
+                }
+            }
+            else if (itemLevel > 50)
+            {
+                baseQuality = 0.0000346 * Math.Pow(control, 2) + (0.34 * control) + 34.66;
+
+                levelDifference = Math.Max(levelDifference, -5);
+
+                if (levelDifference <= -5)
+                {
+                    levelCorrection = 0.05374 * levelDifference;
+                }
+                else
+                {
+                    levelCorrection = 0.05 * -0.5;
+                }
             }
             else
             {
-                baseQuality = 34.275521095175201 + 0.3558806693020045 * control + 0.000035279187952857053 * control * control;
-            }
+                baseQuality = 0.0000346 * Math.Pow(control, 2) + (0.34 * control) + 34.66;
 
-            if (GetVirtualCrafterLevel(crafterLevel) > 50)
-            {
-                baseQuality = (-0.0000000000321 * Math.Pow(control, 4)) + (0.000000101831469820255 * Math.Pow(control, 3)) + (-0.0000788982445035823 * Math.Pow(control, 2)) + (0.388500734046211 * control) + 24.85488004;
-            }
+                levelDifference = Math.Max(levelDifference, -5);
 
+                if (levelDifference < 0)
+                {
+                    levelCorrection = 0.05 * levelDifference;
+                }                
+            }                        
 
-            //Test ingII
-            //baseQuality = 33.468181818145240 + 0.34141636304406126 * control + 0.000034475437808642656 * control * control;
-                        
-            //double baseQuality = (0.3597402597 * control) + 33.9805194805; 
-
-            int levelDifference = LevelFactor(itemLevel, crafterLevel);
-            double levelCorrection = 0;
-
-            //if (levelDifference < -5)
-            //{
-            //    levelCorrection = -0.25;
-            //}
-
-            //if (levelDifference >= -5 && levelDifference < 0)
-            //{
-            //    levelCorrection = levelDifference * 0.05;
-            //}
-
-            return baseQuality * (1 + levelCorrection);
+            return baseQuality * (1 + levelCorrection) * (1 + recipeLevelFactor);
         }
 
         public static int LevelFactor(int itemLevel, int crafterLevel)
