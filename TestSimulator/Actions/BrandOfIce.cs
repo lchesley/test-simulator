@@ -80,6 +80,11 @@ namespace TestSimulator
                 //Success!
                 wasSuccessful = true;
 
+                if (activeModifiers.Where(o => o.ModifierName == "Name Of Ice").Count() > 0)
+                {
+                    progressModifier = 2 * (craft.Progress / craft.Difficulty - 1) + 3;
+                }
+
                 if(craft.Affinity == ElementalAffinity.Ice)
                 {
                     progressModifier = progressModifier * 2;

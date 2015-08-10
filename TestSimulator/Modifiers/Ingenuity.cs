@@ -96,7 +96,7 @@ namespace TestSimulator
 
             return ModifierName + " is applied.  Item Level is now " + craft.ItemLevel;
         }
-
+                    
         public string ApplyModifier(IAction action)
         {
             return String.Empty;

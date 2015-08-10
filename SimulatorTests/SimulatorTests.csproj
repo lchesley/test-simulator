@@ -59,6 +59,7 @@
     <Compile Include="Sub50ProgressIngenuityIM.cs" />
     <Compile Include="Sub50ProgressIngenuityIIM.cs" />
     <Compile Include="Sub50QualityM.cs" />
+    <Compile Include="EvenLevelBrandofWind.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestSimulator\TestSimulator.csproj">

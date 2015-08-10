@@ -80,6 +80,11 @@ namespace TestSimulator
                 //Success!
                 wasSuccessful = true;
 
+                if (activeModifiers.Where(o => o.ModifierName == "Name Of Wind").Count() > 0)
+                {
+                    progressModifier = 2 * (craft.Progress / craft.Difficulty - 1) + 3;
+                }
+
                 if(craft.Affinity == ElementalAffinity.Wind)
                 {
                     progressModifier = progressModifier * 2;
@@ -97,7 +102,7 @@ namespace TestSimulator
                 wasSuccessful = false;
                 result = ActionName + " failed!";
             }
-
+            
             craft.IncrementStep();
             craft.UpdateDurability(DurabilityUsed);
             crafter.UpdateCP(CPCost);
