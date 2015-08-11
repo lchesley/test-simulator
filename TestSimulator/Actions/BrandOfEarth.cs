@@ -82,7 +82,7 @@ namespace TestSimulator
 
                 if(activeModifiers.Where(o => o.ModifierName == "Name Of Earth").Count() > 0)
                 {
-                    progressModifier = 2 * (craft.Progress/craft.Difficulty - 1) + 3;
+                    progressModifier = 2 * ((craft.Difficulty - craft.Progress) / craft.Difficulty - 1) + 3;
                 }
 
                 if(craft.Affinity == ElementalAffinity.Earth)

@@ -153,15 +153,53 @@ namespace SimulatorTests
         {
             //Arrange                        
             double expected = 351;
-            MockCraft.TheMockCraft.SetInitialValues(60, 150, 70, 956, 9999, "");
-            MockCraft.TheMockCraft.UpdateProgress(128);
+            //MockCraft.TheMockCraft.SetInitialValues(60, 150, 70, 956, 9999, "");
+            //MockCraft.TheMockCraft.UpdateProgress(128);
             List<IModifier> modifiers = new List<IModifier>();
             modifiers.Add(new NameOfWind());
 
             //Act
             BrandOfWind brand = new BrandOfWind();            
+            string temp = brand.ExecuteAction(MockCraft.TheMockCraft, MockCrafter.TheMockCrafter, modifiers, new Random(), Conditions.Normal);            
+            var result = MockCraft.TheMockCraft.Progress - 128;
+
+            //Assert
+            Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
+        }
+
+        [TestMethod]
+        public void CalculateProgress_BrandOfWind_NameOfWind_NoWindAffinity_479ProgressMade()
+        {
+            //Arrange                        
+            double expected = 265;
+            //MockCraft.TheMockCraft.SetInitialValues(60, 150, 70, 956, 9999, "");
+            //MockCraft.TheMockCraft.UpdateProgress(479);
+            List<IModifier> modifiers = new List<IModifier>();
+            modifiers.Add(new NameOfWind());
+
+            //Act
+            BrandOfWind brand = new BrandOfWind();
             string temp = brand.ExecuteAction(MockCraft.TheMockCraft, MockCrafter.TheMockCrafter, modifiers, new Random(), Conditions.Normal);
-            var result = MockCraft.TheMockCraft.Progress;
+            var result = MockCraft.TheMockCraft.Progress - 479;
+
+            //Assert
+            Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
+        }
+
+        [TestMethod]
+        public void CalculateProgress_BrandOfWind_NameOfWind_NoWindAffinity_744ProgressMade()
+        {
+            //Arrange                        
+            double expected = 190;
+            //MockCraft.TheMockCraft.SetInitialValues(60, 150, 70, 956, 9999, "");
+            //MockCraft.TheMockCraft.UpdateProgress(744);
+            List<IModifier> modifiers = new List<IModifier>();
+            modifiers.Add(new NameOfWind());
+
+            //Act
+            BrandOfWind brand = new BrandOfWind();
+            string temp = brand.ExecuteAction(MockCraft.TheMockCraft, MockCrafter.TheMockCrafter, modifiers, new Random(), Conditions.Normal);
+            var result = MockCraft.TheMockCraft.Progress - 744;
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
