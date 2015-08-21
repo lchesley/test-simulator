@@ -82,8 +82,9 @@ namespace TestSimulator
 
                 if (activeModifiers.Where(o => o.ModifierName == "Name Of Wind").Count() > 0)
                 {
+                    double remainingProgressPercentage = ((craft.Difficulty - craft.Progress) / craft.Difficulty);
                     //progressModifier = 2 * ((craft.Difficulty - craft.Progress) / craft.Difficulty - 1) + 3;
-                    progressModifier = (2.0218 * (((craft.Difficulty - craft.Progress) / craft.Difficulty) * 100) + 100)/100;
+                    progressModifier = -0.1036 * Math.Pow(remainingProgressPercentage, 2) + 2.1048 * remainingProgressPercentage + 0.9961;
                 }
 
                 if(craft.Affinity == ElementalAffinity.Wind)

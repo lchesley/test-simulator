@@ -74,25 +74,9 @@ namespace TestSimulator
 
         public string ApplyModifier(ICrafter crafter, ICraft craft)
         {
-            crafter.UpdateCP(CPCost);
+            crafter.UpdateCP(CPCost);            
 
-            if (crafter.CrafterLevel <= 50)
-            {
-                if (craft.RecipeLevel < 50 || (craft.RecipeLevel == 50 && craft.ItemLevel == 50))
-                {
-                    craft.SetItemLevel(craft.ItemLevel - 8);
-                }
-
-                if (craft.ItemLevel == 55 || craft.ItemLevel == 70)
-                {
-                    craft.SetItemLevel(crafter.CrafterLevel - 3);
-                }
-
-                if (craft.ItemLevel > 110)
-                {
-                    craft.SetItemLevel(crafter.CrafterLevel + 4);
-                }                
-            }            
+            craft.SetItemLevel(Calc.GetIngenuityIIItemLevels(craft.ItemLevel));
             
             return ModifierName + " is applied.  Item Level is now " + craft.ItemLevel;
         }

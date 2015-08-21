@@ -139,7 +139,7 @@ namespace SimulatorTests
             MockCraft.TheMockCraft.SetInitialValues(50, 70, 40, 1436, 9999, "");
 
             //Act
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -153,7 +153,7 @@ namespace SimulatorTests
             MockCraft.TheMockCraft.SetInitialValues(50, 55, 40, 1436, 9999, "");
 
             //Act
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -167,7 +167,7 @@ namespace SimulatorTests
             MockCraft.TheMockCraft.SetInitialValues(51, 115, 40, 1436, 9999, "");
 
             //Act
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -195,7 +195,7 @@ namespace SimulatorTests
             MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 1), (MockCrafter.TheMockCrafter.CrafterLevel - 1), 40, 1436, 9999, "");
 
             //Act
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -209,7 +209,7 @@ namespace SimulatorTests
             MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 2), (MockCrafter.TheMockCrafter.CrafterLevel - 2), 40, 1436, 9999, "");
 
             //Act
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -251,7 +251,7 @@ namespace SimulatorTests
             MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 5), (MockCrafter.TheMockCrafter.CrafterLevel - 5), 40, 1436, 9999, "");
 
             //Act
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -293,7 +293,7 @@ namespace SimulatorTests
             MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 8), (MockCrafter.TheMockCrafter.CrafterLevel - 8), 40, 1436, 9999, "");
 
             //Act
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -307,7 +307,7 @@ namespace SimulatorTests
             MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 9), (MockCrafter.TheMockCrafter.CrafterLevel - 9), 40, 1436, 9999, "");
 
             //Act
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -321,7 +321,7 @@ namespace SimulatorTests
             MockCraft.TheMockCraft.SetInitialValues((MockCrafter.TheMockCrafter.CrafterLevel - 10), (MockCrafter.TheMockCrafter.CrafterLevel - 10), 40, 1436, 9999, "");
 
             //Act
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -337,7 +337,7 @@ namespace SimulatorTests
             //Act
             Ingenuity ing = new Ingenuity();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -353,7 +353,7 @@ namespace SimulatorTests
             //Act
             Ingenuity ing = new Ingenuity();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -369,7 +369,7 @@ namespace SimulatorTests
             //Act
             Ingenuity ing = new Ingenuity();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -399,7 +399,7 @@ namespace SimulatorTests
             //Act
             Ingenuity ing = new Ingenuity();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -415,7 +415,7 @@ namespace SimulatorTests
             //Act
             Ingenuity ing = new Ingenuity();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -459,7 +459,7 @@ namespace SimulatorTests
             //Act
             Ingenuity ing = new Ingenuity();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -503,7 +503,7 @@ namespace SimulatorTests
             //Act
             Ingenuity ing = new Ingenuity();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -519,7 +519,7 @@ namespace SimulatorTests
             //Act
             Ingenuity ing = new Ingenuity();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -535,7 +535,7 @@ namespace SimulatorTests
             //Act
             Ingenuity ing = new Ingenuity();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -551,7 +551,7 @@ namespace SimulatorTests
             //Act
             Ingenuity2 ing = new Ingenuity2();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -567,7 +567,7 @@ namespace SimulatorTests
             //Act
             Ingenuity2 ing = new Ingenuity2();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -583,7 +583,7 @@ namespace SimulatorTests
             //Act
             Ingenuity2 ing = new Ingenuity2();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -613,7 +613,7 @@ namespace SimulatorTests
             //Act
             Ingenuity2 ing = new Ingenuity2();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -629,7 +629,7 @@ namespace SimulatorTests
             //Act
             Ingenuity2 ing = new Ingenuity2();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -673,7 +673,7 @@ namespace SimulatorTests
             //Act
             Ingenuity2 ing = new Ingenuity2();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -717,7 +717,7 @@ namespace SimulatorTests
             //Act
             Ingenuity2 ing = new Ingenuity2();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -733,7 +733,7 @@ namespace SimulatorTests
             //Act
             Ingenuity2 ing = new Ingenuity2();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
@@ -749,7 +749,7 @@ namespace SimulatorTests
             //Act
             Ingenuity2 ing = new Ingenuity2();
             string temp = ing.ApplyModifier(MockCrafter.TheMockCrafter, MockCraft.TheMockCraft);
-            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Craftsmanship);
+            var result = Calc.Quality(MockCraft.TheMockCraft.RecipeLevel, MockCraft.TheMockCraft.ItemLevel, MockCrafter.TheMockCrafter.CrafterLevel, MockCrafter.TheMockCrafter.Control);
 
             //Assert
             Assert.AreEqual(expected, Math.Round(result, 0, MidpointRounding.ToEven), 1);
